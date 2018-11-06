@@ -4,17 +4,15 @@ class Application
     resp = Rack::Response.new
     resp.write "Hello, World"
     resp.finish
-  end
 
-  def execute
     num_1 = Kernel.rand(1..20)
     num_2 = Kernel.rand(1..20)
     num_3 = Kernel.rand(1..20)
 
     if [num_1, num_2, num_3].uniq.count == 1
-      puts "You Win"
+      resp.write "You Win"
     else
-      puts "You Lose"
+      resp.write "You Lose"
     end
   end
 
